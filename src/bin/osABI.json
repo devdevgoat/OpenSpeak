@@ -3,60 +3,35 @@
 		"anonymous": false,
 		"inputs": [
 			{
-				"components": [
-					{
-						"internalType": "address",
-						"name": "_address",
-						"type": "address"
-					},
-					{
-						"internalType": "string",
-						"name": "img",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "ens_name",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "about",
-						"type": "string"
-					}
-				],
 				"indexed": false,
-				"internalType": "struct OpenSpeak.User",
-				"name": "_follower",
-				"type": "tuple"
+				"internalType": "address",
+				"name": "_exfollower",
+				"type": "address"
 			},
 			{
-				"components": [
-					{
-						"internalType": "address",
-						"name": "_address",
-						"type": "address"
-					},
-					{
-						"internalType": "string",
-						"name": "img",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "ens_name",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "about",
-						"type": "string"
-					}
-				],
 				"indexed": false,
-				"internalType": "struct OpenSpeak.User",
+				"internalType": "address",
 				"name": "_leader",
-				"type": "tuple"
+				"type": "address"
+			}
+		],
+		"name": "droppedFollow",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "_follower",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "_leader",
+				"type": "address"
 			}
 		],
 		"name": "newFollow",
@@ -91,6 +66,33 @@
 						"internalType": "string[]",
 						"name": "replyingCIDs",
 						"type": "string[]"
+					},
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "_address",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "img",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "ens_name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "about",
+								"type": "string"
+							}
+						],
+						"internalType": "struct OpenSpeak.User",
+						"name": "author",
+						"type": "tuple"
 					}
 				],
 				"indexed": false,
@@ -134,16 +136,60 @@
 		"anonymous": false,
 		"inputs": [
 			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "img",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "ens_name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "about",
+						"type": "string"
+					}
+				],
 				"indexed": false,
-				"internalType": "address",
+				"internalType": "struct OpenSpeak.User",
 				"name": "_from",
-				"type": "address"
+				"type": "tuple"
 			},
 			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "img",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "ens_name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "about",
+						"type": "string"
+					}
+				],
 				"indexed": false,
-				"internalType": "address",
+				"internalType": "struct OpenSpeak.User",
 				"name": "_to",
-				"type": "address"
+				"type": "tuple"
 			},
 			{
 				"components": [
@@ -171,6 +217,33 @@
 						"internalType": "string[]",
 						"name": "replyingCIDs",
 						"type": "string[]"
+					},
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "_address",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "img",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "ens_name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "about",
+								"type": "string"
+							}
+						],
+						"internalType": "struct OpenSpeak.User",
+						"name": "author",
+						"type": "tuple"
 					}
 				],
 				"indexed": false,
@@ -204,6 +277,33 @@
 						"internalType": "string[]",
 						"name": "replyingCIDs",
 						"type": "string[]"
+					},
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "_address",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "img",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "ens_name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "about",
+								"type": "string"
+							}
+						],
+						"internalType": "struct OpenSpeak.User",
+						"name": "author",
+						"type": "tuple"
 					}
 				],
 				"indexed": false,
@@ -216,8 +316,163 @@
 		"type": "event"
 	},
 	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"components": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "_address",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "img",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "ens_name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "about",
+								"type": "string"
+							}
+						],
+						"internalType": "struct OpenSpeak.User",
+						"name": "info",
+						"type": "tuple"
+					},
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "_address",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "img",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "ens_name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "about",
+								"type": "string"
+							}
+						],
+						"internalType": "struct OpenSpeak.User[]",
+						"name": "followers",
+						"type": "tuple[]"
+					},
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "_address",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "img",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "ens_name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "about",
+								"type": "string"
+							}
+						],
+						"internalType": "struct OpenSpeak.User[]",
+						"name": "following",
+						"type": "tuple[]"
+					},
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "createdON",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "CID",
+								"type": "string"
+							},
+							{
+								"internalType": "address[]",
+								"name": "likedBy",
+								"type": "address[]"
+							},
+							{
+								"internalType": "string",
+								"name": "parentCID",
+								"type": "string"
+							},
+							{
+								"internalType": "string[]",
+								"name": "replyingCIDs",
+								"type": "string[]"
+							},
+							{
+								"components": [
+									{
+										"internalType": "address",
+										"name": "_address",
+										"type": "address"
+									},
+									{
+										"internalType": "string",
+										"name": "img",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "ens_name",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "about",
+										"type": "string"
+									}
+								],
+								"internalType": "struct OpenSpeak.User",
+								"name": "author",
+								"type": "tuple"
+							}
+						],
+						"internalType": "struct OpenSpeak.Post[]",
+						"name": "posts",
+						"type": "tuple[]"
+					}
+				],
+				"indexed": false,
+				"internalType": "struct OpenSpeak.Profile",
+				"name": "_profile",
+				"type": "tuple"
+			}
+		],
+		"name": "newUser",
+		"type": "event"
+	},
+	{
 		"inputs": [],
-		"name": "countOfFolling",
+		"name": "countOfFollowers",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -230,7 +485,7 @@
 	},
 	{
 		"inputs": [],
-		"name": "countOfFollowers",
+		"name": "countOfFollowing",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -342,6 +597,328 @@
 	{
 		"inputs": [
 			{
+				"internalType": "uint256",
+				"name": "i",
+				"type": "uint256"
+			}
+		],
+		"name": "getFollower",
+		"outputs": [
+			{
+				"components": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "_address",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "img",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "ens_name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "about",
+								"type": "string"
+							}
+						],
+						"internalType": "struct OpenSpeak.User",
+						"name": "info",
+						"type": "tuple"
+					},
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "_address",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "img",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "ens_name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "about",
+								"type": "string"
+							}
+						],
+						"internalType": "struct OpenSpeak.User[]",
+						"name": "followers",
+						"type": "tuple[]"
+					},
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "_address",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "img",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "ens_name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "about",
+								"type": "string"
+							}
+						],
+						"internalType": "struct OpenSpeak.User[]",
+						"name": "following",
+						"type": "tuple[]"
+					},
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "createdON",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "CID",
+								"type": "string"
+							},
+							{
+								"internalType": "address[]",
+								"name": "likedBy",
+								"type": "address[]"
+							},
+							{
+								"internalType": "string",
+								"name": "parentCID",
+								"type": "string"
+							},
+							{
+								"internalType": "string[]",
+								"name": "replyingCIDs",
+								"type": "string[]"
+							},
+							{
+								"components": [
+									{
+										"internalType": "address",
+										"name": "_address",
+										"type": "address"
+									},
+									{
+										"internalType": "string",
+										"name": "img",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "ens_name",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "about",
+										"type": "string"
+									}
+								],
+								"internalType": "struct OpenSpeak.User",
+								"name": "author",
+								"type": "tuple"
+							}
+						],
+						"internalType": "struct OpenSpeak.Post[]",
+						"name": "posts",
+						"type": "tuple[]"
+					}
+				],
+				"internalType": "struct OpenSpeak.Profile",
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "i",
+				"type": "uint256"
+			}
+		],
+		"name": "getFollowingUser",
+		"outputs": [
+			{
+				"components": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "_address",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "img",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "ens_name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "about",
+								"type": "string"
+							}
+						],
+						"internalType": "struct OpenSpeak.User",
+						"name": "info",
+						"type": "tuple"
+					},
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "_address",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "img",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "ens_name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "about",
+								"type": "string"
+							}
+						],
+						"internalType": "struct OpenSpeak.User[]",
+						"name": "followers",
+						"type": "tuple[]"
+					},
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "_address",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "img",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "ens_name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "about",
+								"type": "string"
+							}
+						],
+						"internalType": "struct OpenSpeak.User[]",
+						"name": "following",
+						"type": "tuple[]"
+					},
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "createdON",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "CID",
+								"type": "string"
+							},
+							{
+								"internalType": "address[]",
+								"name": "likedBy",
+								"type": "address[]"
+							},
+							{
+								"internalType": "string",
+								"name": "parentCID",
+								"type": "string"
+							},
+							{
+								"internalType": "string[]",
+								"name": "replyingCIDs",
+								"type": "string[]"
+							},
+							{
+								"components": [
+									{
+										"internalType": "address",
+										"name": "_address",
+										"type": "address"
+									},
+									{
+										"internalType": "string",
+										"name": "img",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "ens_name",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "about",
+										"type": "string"
+									}
+								],
+								"internalType": "struct OpenSpeak.User",
+								"name": "author",
+								"type": "tuple"
+							}
+						],
+						"internalType": "struct OpenSpeak.Post[]",
+						"name": "posts",
+						"type": "tuple[]"
+					}
+				],
+				"internalType": "struct OpenSpeak.Profile",
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
 				"internalType": "address",
 				"name": "_address",
 				"type": "address"
@@ -380,6 +957,33 @@
 						"internalType": "string[]",
 						"name": "replyingCIDs",
 						"type": "string[]"
+					},
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "_address",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "img",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "ens_name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "about",
+								"type": "string"
+							}
+						],
+						"internalType": "struct OpenSpeak.User",
+						"name": "author",
+						"type": "tuple"
 					}
 				],
 				"internalType": "struct OpenSpeak.Post",
@@ -414,6 +1018,33 @@
 				"internalType": "string",
 				"name": "parentCID",
 				"type": "string"
+			},
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "img",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "ens_name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "about",
+						"type": "string"
+					}
+				],
+				"internalType": "struct OpenSpeak.User",
+				"name": "author",
+				"type": "tuple"
 			}
 		],
 		"stateMutability": "view",

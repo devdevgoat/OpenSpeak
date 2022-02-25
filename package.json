@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch" : "npx watchify -v --exclude *.json ./src/bin/*.js -o ./public/bundle.js"
+    "watch" : "npx watchify -v --exclude *.json ./src/bin/2_ipfs.js -o ./public/bundle.js"
   },
   "author": "",
   "license": "ISC",
