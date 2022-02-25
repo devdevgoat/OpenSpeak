@@ -1,0 +1,597 @@
+[
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "img",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "ens_name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "about",
+						"type": "string"
+					}
+				],
+				"indexed": false,
+				"internalType": "struct OpenSpeak.User",
+				"name": "_follower",
+				"type": "tuple"
+			},
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "img",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "ens_name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "about",
+						"type": "string"
+					}
+				],
+				"indexed": false,
+				"internalType": "struct OpenSpeak.User",
+				"name": "_leader",
+				"type": "tuple"
+			}
+		],
+		"name": "newFollow",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "createdON",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "CID",
+						"type": "string"
+					},
+					{
+						"internalType": "address[]",
+						"name": "likedBy",
+						"type": "address[]"
+					},
+					{
+						"internalType": "string",
+						"name": "parentCID",
+						"type": "string"
+					},
+					{
+						"internalType": "string[]",
+						"name": "replyingCIDs",
+						"type": "string[]"
+					}
+				],
+				"indexed": false,
+				"internalType": "struct OpenSpeak.Post",
+				"name": "_post",
+				"type": "tuple"
+			},
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "img",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "ens_name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "about",
+						"type": "string"
+					}
+				],
+				"indexed": false,
+				"internalType": "struct OpenSpeak.User",
+				"name": "_from",
+				"type": "tuple"
+			}
+		],
+		"name": "newPost",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "_from",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "_to",
+				"type": "address"
+			},
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "createdON",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "CID",
+						"type": "string"
+					},
+					{
+						"internalType": "address[]",
+						"name": "likedBy",
+						"type": "address[]"
+					},
+					{
+						"internalType": "string",
+						"name": "parentCID",
+						"type": "string"
+					},
+					{
+						"internalType": "string[]",
+						"name": "replyingCIDs",
+						"type": "string[]"
+					}
+				],
+				"indexed": false,
+				"internalType": "struct OpenSpeak.Post",
+				"name": "parent",
+				"type": "tuple"
+			},
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "createdON",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "CID",
+						"type": "string"
+					},
+					{
+						"internalType": "address[]",
+						"name": "likedBy",
+						"type": "address[]"
+					},
+					{
+						"internalType": "string",
+						"name": "parentCID",
+						"type": "string"
+					},
+					{
+						"internalType": "string[]",
+						"name": "replyingCIDs",
+						"type": "string[]"
+					}
+				],
+				"indexed": false,
+				"internalType": "struct OpenSpeak.Post",
+				"name": "child",
+				"type": "tuple"
+			}
+		],
+		"name": "newReply",
+		"type": "event"
+	},
+	{
+		"inputs": [],
+		"name": "countOfFolling",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "countOfFollowers",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_address",
+				"type": "address"
+			}
+		],
+		"name": "countOfPosts",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_cid",
+				"type": "string"
+			}
+		],
+		"name": "countOfReplies",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_CID",
+				"type": "string"
+			}
+		],
+		"name": "createPost",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "directory",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "_address",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "img",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "ens_name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "about",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_userAddress",
+				"type": "address"
+			}
+		],
+		"name": "follow",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_address",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "postId",
+				"type": "uint256"
+			}
+		],
+		"name": "getUserPost",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "createdON",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "CID",
+						"type": "string"
+					},
+					{
+						"internalType": "address[]",
+						"name": "likedBy",
+						"type": "address[]"
+					},
+					{
+						"internalType": "string",
+						"name": "parentCID",
+						"type": "string"
+					},
+					{
+						"internalType": "string[]",
+						"name": "replyingCIDs",
+						"type": "string[]"
+					}
+				],
+				"internalType": "struct OpenSpeak.Post",
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"name": "globalFeed",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "createdON",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "CID",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "parentCID",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_userAddress",
+				"type": "address"
+			}
+		],
+		"name": "isFollower",
+		"outputs": [
+			{
+				"internalType": "int256",
+				"name": "",
+				"type": "int256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_userAddress",
+				"type": "address"
+			}
+		],
+		"name": "isFollowing",
+		"outputs": [
+			{
+				"internalType": "int256",
+				"name": "",
+				"type": "int256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_user",
+				"type": "address"
+			}
+		],
+		"name": "isRegistered",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "profile",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "img",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "ens_name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "about",
+						"type": "string"
+					}
+				],
+				"internalType": "struct OpenSpeak.User",
+				"name": "info",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "register",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_opCID",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_replyingCID",
+				"type": "string"
+			}
+		],
+		"name": "replyToPost",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_about",
+				"type": "string"
+			}
+		],
+		"name": "setAbout",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_ens",
+				"type": "string"
+			}
+		],
+		"name": "setEnsName",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_cid",
+				"type": "string"
+			}
+		],
+		"name": "setProfilePhoto",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_userAddress",
+				"type": "address"
+			}
+		],
+		"name": "unFollow",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
+]
