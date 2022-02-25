@@ -8,13 +8,21 @@ var Contract = require('web3-eth-contract');
 var acts;
 var abi = require('./osABI.json');
 window.abi = abi
+
+var web3 = new Web3(Web3.givenProvider)
+
 // connect to metamask
 const ethEnabled = async () => {
     if (window.ethereum !== undefined) {
         acts = await window.ethereum.request({method: 'eth_requestAccounts'});
         window.defaultAccount = acts[0];
-        window.web3 = new Web3(window.ethereum);
+        web3.eth.defaultAccount = acts[0];
+        // window.web3 = new Web3(window.ethereum);
+       
+        // window.web3.eth.defaultAccount = acts[0];
       return true;
+    } else{
+      alert('Not a Web3 enabled browser!')
     }
     return false;
   }
@@ -27,6 +35,7 @@ const ethEnabled = async () => {
       feed: () =>document.getElementById('feed'),
       refresh: () => document.getElementById('refreshBtn'),
       register: () => document.getElementById('register'),
+      error: () => document.getElementById('error'),
   }
 
   const store = async (content) => {
@@ -57,6 +66,24 @@ const ethEnabled = async () => {
       return `${file.cid}`
   }
 
+  const alert = async (error) => {
+    let el = DOM.error()
+    el.innerText = error.message
+    var popup = new bootstrap.Collapse(el)
+    popup.toggle()
+    hasAlert= true
+  }
+
+  const hideAlert = async () => {
+    let el = DOM.error()
+    el.innerText = ''
+    var popup = new bootstrap.Collapse(el)
+    popup.toggle()
+    hasAlert = false
+  }
+
+  var hasAlert = false;
+
   const cat = async (cid) => {
     if (!ipfs) {
         // creat ipfs node
@@ -78,16 +105,25 @@ const ethEnabled = async () => {
     if(!await isRegistered()) {
       console.log("Register first");
       return;
-    }
-    var postCount = await window.contract.methods.countOfPosts(defaultAccount).call();
-    let feed = DOM.feed();
-    for (let i = 0; i<postCount; i++){
-        var ipfsDoc = await window.contract.methods.postsOfUser(defaultAccount, i).call();
-        console.log(`Found post ${ipfsDoc.CID}`);
-        if (!document.body.contains(document.getElementById(ipfsDoc.CID))){
-          var div = await createFeedEntry(defaultAccount,ipfsDoc.CID);
-          feed.prepend(div);
+    } else {
+      console.log("User is registered, loading feed")
+      try {
+        if (hasAlert) hideAlert()
+        var postCount = await window.contract.methods.countOfPosts(defaultAccount).call();
+        let feed = DOM.feed();
+        for (let i = 0; i<postCount; i++){
+            var ipfsDoc = await window.contract.methods.postsOfUser(defaultAccount, i).call();
+            console.log(`Found post ${ipfsDoc.CID}`);
+            if (!document.body.contains(document.getElementById(ipfsDoc.CID))){
+              var div = await createFeedEntry(defaultAccount,ipfsDoc.CID);
+              feed.prepend(div);
+            }
         }
+      } catch (err) {
+        console.log(err)
+        alert(err)
+      }
+      
     }
     // need to add an emit to the contract now and listen for new posts
   }
@@ -146,14 +182,14 @@ const ethEnabled = async () => {
 
   DOM.register().onclick = async (e) => {
     e.preventDefault()
-    if (!await isRegistered()){
-      window.contract.methods.register().send({
-          from: window.defaultAccount,
-          gas: '3000000'})
-      .then(function(receipt){
-          console.log(receipt);
-      });
-    }
+    window.contract.methods.register().send({
+      from: window.defaultAccount,
+      gas: '3000000'})
+    .then(function(receipt){
+        console.log(receipt);
+    }).catch((error)=>{
+      alert(error)
+    });
   }
 
 
@@ -163,6 +199,7 @@ if (ethEnabled) {
   console.log("we have eth!");
   window.ethereum.request({method: 'eth_requestAccounts'}).then(acts => {
       window.defaultAccount = acts[0];
+      
       Contract.setProvider(window.ethereum);
       window.contract = new Contract(abi, '0xe97dE59010A39fE0913A897F5C205a85122D6b59');
       console.log("loading feed");

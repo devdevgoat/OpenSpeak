@@ -1,1 +1,0 @@
-console.error("Error: Can't walk dependency graph: Cannot find module '../../../../../../../AppData/Roaming/npm/node_modules/browserify/node_modules/is-buffer/index.js' from '/Users/russelllamb/Code/OpenSpeak/public/web3_controller.js'\n    required by /Users/russelllamb/Code/OpenSpeak/public/web3_controller.js");
